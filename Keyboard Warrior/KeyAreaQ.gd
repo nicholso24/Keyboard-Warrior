@@ -1,0 +1,13 @@
+extends Area2D
+
+
+func _process(delta):
+	var bodies = get_overlapping_bodies()
+#	if bodies.size() > 0:
+#		print(bodies)
+	if Input.is_action_just_pressed("q_key"):
+		for node in bodies:
+			node.kill()
+		hide()
+		yield(get_tree().create_timer(1), "timeout")
+		show()

@@ -1,0 +1,313 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Main.gd" type="Script" id=1]
+[ext_resource path="res://Key.gd" type="Script" id=2]
+[ext_resource path="res://KeyAreaQ.gd" type="Script" id=3]
+[ext_resource path="res://KeyAreaP.gd" type="Script" id=4]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://KeyAreaW.gd" type="Script" id=6]
+[ext_resource path="res://KeyAreaE.gd" type="Script" id=7]
+[ext_resource path="res://KeyAreaR.gd" type="Script" id=8]
+[ext_resource path="res://KeyAreaT.gd" type="Script" id=9]
+[ext_resource path="res://KeyAreaU.gd" type="Script" id=10]
+[ext_resource path="res://KeyAreaY.gd" type="Script" id=11]
+[ext_resource path="res://KeyAreaI.gd" type="Script" id=12]
+[ext_resource path="res://KeyAreaO.gd" type="Script" id=13]
+[ext_resource path="res://Robot.tscn" type="PackedScene" id=14]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 51.5, 75 )
+
+[node name="Main" type="Node"]
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.4, 0.301961, 0.529412, 1 )
+script = ExtResource( 2 )
+
+[node name="Key1" type="ColorRect" parent="ColorRect"]
+anchor_top = 0.1
+anchor_right = 0.1
+anchor_bottom = 0.37
+color = Color( 0.0784314, 1, 0, 0.180392 )
+
+[node name="Label" type="Label" parent="ColorRect/Key1"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -7.0
+margin_right = 20.0
+margin_bottom = 7.0
+text = "Q"
+align = 1
+
+[node name="KeyAreaQ" type="Area2D" parent="ColorRect/Key1"]
+position = Vector2( 260, 132 )
+collision_layer = 0
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/Key1/KeyAreaQ"]
+position = Vector2( -208.5, -57 )
+shape = SubResource( 1 )
+
+[node name="Key2" type="ColorRect" parent="ColorRect"]
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.2
+anchor_bottom = 0.37
+color = Color( 0.0784314, 1, 0, 0.180392 )
+
+[node name="Label" type="Label" parent="ColorRect/Key2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -7.0
+margin_right = 20.0
+margin_bottom = 7.0
+text = "W"
+align = 1
+
+[node name="KeyAreaW" type="Area2D" parent="ColorRect/Key2"]
+collision_layer = 0
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/Key2/KeyAreaW"]
+position = Vector2( 51, 75 )
+shape = SubResource( 1 )
+
+[node name="Key3" type="ColorRect" parent="ColorRect"]
+anchor_left = 0.2
+anchor_top = 0.1
+anchor_right = 0.3
+anchor_bottom = 0.37
+color = Color( 0.0784314, 1, 0, 0.180392 )
+
+[node name="Label" type="Label" parent="ColorRect/Key3"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -7.0
+margin_right = 20.0
+margin_bottom = 7.0
+text = "E"
+align = 1
+
+[node name="KeyAreaE" type="Area2D" parent="ColorRect/Key3"]
+collision_layer = 0
+script = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/Key3/KeyAreaE"]
+position = Vector2( 51, 75 )
+shape = SubResource( 1 )
+
+[node name="Key4" type="ColorRect" parent="ColorRect"]
+anchor_left = 0.3
+anchor_top = 0.1
+anchor_right = 0.4
+anchor_bottom = 0.37
+color = Color( 0.0784314, 1, 0, 0.180392 )
+
+[node name="Label" type="Label" parent="ColorRect/Key4"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -7.0
+margin_right = 20.0
+margin_bottom = 7.0
+text = "R"
+align = 1
+
+[node name="KeyAreaR" type="Area2D" parent="ColorRect/Key4"]
+collision_layer = 0
+script = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/Key4/KeyAreaR"]
+position = Vector2( 51, 75 )
+shape = SubResource( 1 )
+
+[node name="Key5" type="ColorRect" parent="ColorRect"]
+anchor_left = 0.4
+anchor_top = 0.1
+anchor_right = 0.5
+anchor_bottom = 0.37
+color = Color( 0.0784314, 1, 0, 0.180392 )
+
+[node name="Label" type="Label" parent="ColorRect/Key5"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -7.0
+margin_right = 20.0
+margin_bottom = 7.0
+text = "T"
+align = 1
+
+[node name="KeyAreaT" type="Area2D" parent="ColorRect/Key5"]
+collision_layer = 0
+script = ExtResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/Key5/KeyAreaT"]
+position = Vector2( 51, 75 )
+shape = SubResource( 1 )
+
+[node name="Key6" type="ColorRect" parent="ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.1
+anchor_right = 0.6
+anchor_bottom = 0.37
+color = Color( 0.0784314, 1, 0, 0.180392 )
+
+[node name="Label" type="Label" parent="ColorRect/Key6"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -7.0
+margin_right = 20.0
+margin_bottom = 7.0
+text = "Y"
+align = 1
+
+[node name="KeyAreaY" type="Area2D" parent="ColorRect/Key6"]
+collision_layer = 0
+script = ExtResource( 11 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/Key6/KeyAreaY"]
+position = Vector2( 51, 75 )
+shape = SubResource( 1 )
+
+[node name="Key7" type="ColorRect" parent="ColorRect"]
+anchor_left = 0.6
+anchor_top = 0.1
+anchor_right = 0.7
+anchor_bottom = 0.37
+color = Color( 0.0784314, 1, 0, 0.180392 )
+
+[node name="Label" type="Label" parent="ColorRect/Key7"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -7.0
+margin_right = 20.0
+margin_bottom = 7.0
+text = "U"
+align = 1
+
+[node name="KeyAreaU" type="Area2D" parent="ColorRect/Key7"]
+collision_layer = 0
+script = ExtResource( 10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/Key7/KeyAreaU"]
+position = Vector2( 51, 75 )
+shape = SubResource( 1 )
+
+[node name="Key8" type="ColorRect" parent="ColorRect"]
+anchor_left = 0.7
+anchor_top = 0.1
+anchor_right = 0.8
+anchor_bottom = 0.37
+color = Color( 0.0784314, 1, 0, 0.180392 )
+
+[node name="Label" type="Label" parent="ColorRect/Key8"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -7.0
+margin_right = 20.0
+margin_bottom = 7.0
+text = "I"
+align = 1
+
+[node name="KeyAreaI" type="Area2D" parent="ColorRect/Key8"]
+collision_layer = 0
+script = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/Key8/KeyAreaI"]
+position = Vector2( 51, 75 )
+shape = SubResource( 1 )
+
+[node name="Key9" type="ColorRect" parent="ColorRect"]
+anchor_left = 0.8
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.37
+color = Color( 0.0784314, 1, 0, 0.180392 )
+
+[node name="Label" type="Label" parent="ColorRect/Key9"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -7.0
+margin_right = 20.0
+margin_bottom = 7.0
+text = "O"
+align = 1
+
+[node name="KeyAreaO" type="Area2D" parent="ColorRect/Key9"]
+collision_layer = 0
+script = ExtResource( 13 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/Key9/KeyAreaO"]
+position = Vector2( 51, 75 )
+shape = SubResource( 1 )
+
+[node name="Key10" type="ColorRect" parent="ColorRect"]
+anchor_left = 0.9
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 0.37
+color = Color( 0.0784314, 1, 0, 0.180392 )
+
+[node name="Label" type="Label" parent="ColorRect/Key10"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -7.0
+margin_right = 20.0
+margin_bottom = 7.0
+text = "P"
+align = 1
+
+[node name="KeyAreaP" type="Area2D" parent="ColorRect/Key10"]
+collision_layer = 0
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/Key10/KeyAreaP"]
+position = Vector2( 51, 75 )
+shape = SubResource( 1 )
+
+[node name="Player" parent="." instance=ExtResource( 5 )]
+position = Vector2( 274, 415 )
+
+[node name="Robot" parent="." instance=ExtResource( 14 )]
+position = Vector2( 421, 348 )
+
+[node name="RobotSpawn" type="Position2D" parent="."]
+position = Vector2( 758, 562 )
+
+[node name="RobotTimer" type="Timer" parent="."]
+wait_time = 4.0
+autostart = true
+
+[connection signal="timeout" from="RobotTimer" to="." method="_on_RobotTimer_timeout"]
