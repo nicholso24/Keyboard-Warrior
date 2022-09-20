@@ -1,6 +1,9 @@
 extends Node
 
+
 var scene = load("res://Robot.tscn")
+
+	
 
 func _on_RobotTimer_timeout():
 	var robot = scene.instance()

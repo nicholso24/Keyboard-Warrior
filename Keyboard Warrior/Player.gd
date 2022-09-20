@@ -19,7 +19,6 @@ func _physics_process(delta):
 	if position.distance_to(target) > 5:
 		$AnimatedSprite.animation = "run"
 		$AnimatedSprite.flip_h = velocity.x < 0
-		
 		#velocity = move_and_collide(velocity)
 		var player = move_and_collide(velocity * delta)
 		
@@ -30,5 +29,9 @@ func _physics_process(delta):
 	else:
 		$AnimatedSprite.animation = "idle"
 		
+		
 func kill():
 	print("HAHAHA")
+
+
+
