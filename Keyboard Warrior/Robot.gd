@@ -19,5 +19,6 @@ func _process(delta):
 		velocity = Vector2.ZERO
 		velocity = position.direction_to(player.position) * 100
 		velocity = move_and_collide(velocity * delta)
+		
 func kill():
 	queue_free()
