@@ -11,7 +11,3 @@ func _physics_process(delta):
 		velocity = position.direction_to(player.position) * 200
 		velocity = move_and_slide(velocity * delta)
 		
-
-
-
-	
