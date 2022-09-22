@@ -1,19 +1,36 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Key.gd" type="Script" id=2]
-[ext_resource path="res://KeyAreaQ.gd" type="Script" id=3]
-[ext_resource path="res://KeyAreaP.gd" type="Script" id=4]
+[ext_resource path="res://KeyAreaScripts/KeyAreaQ.gd" type="Script" id=3]
+[ext_resource path="res://KeyAreaScripts/KeyAreaP.gd" type="Script" id=4]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=5]
-[ext_resource path="res://KeyAreaW.gd" type="Script" id=6]
-[ext_resource path="res://KeyAreaE.gd" type="Script" id=7]
-[ext_resource path="res://KeyAreaR.gd" type="Script" id=8]
-[ext_resource path="res://KeyAreaT.gd" type="Script" id=9]
-[ext_resource path="res://KeyAreaU.gd" type="Script" id=10]
-[ext_resource path="res://KeyAreaY.gd" type="Script" id=11]
-[ext_resource path="res://KeyAreaI.gd" type="Script" id=12]
-[ext_resource path="res://KeyAreaO.gd" type="Script" id=13]
-[ext_resource path="res://HUD.tscn" type="PackedScene" id=15]
+
+[ext_resource path="res://KeyAreaScripts/KeyAreaW.gd" type="Script" id=6]
+[ext_resource path="res://KeyAreaScripts/KeyAreaE.gd" type="Script" id=7]
+[ext_resource path="res://KeyAreaScripts/KeyAreaR.gd" type="Script" id=8]
+[ext_resource path="res://KeyAreaScripts/KeyAreaT.gd" type="Script" id=9]
+[ext_resource path="res://KeyAreaScripts/KeyAreaU.gd" type="Script" id=10]
+[ext_resource path="res://KeyAreaScripts/KeyAreaY.gd" type="Script" id=11]
+[ext_resource path="res://KeyAreaScripts/KeyAreaI.gd" type="Script" id=12]
+[ext_resource path="res://KeyAreaScripts/KeyAreaO.gd" type="Script" id=13]
+[ext_resource path="res://Robot.tscn" type="PackedScene" id=14]
+[ext_resource path="res://KeyAreaScripts/KeyAreaA.gd" type="Script" id=15]
+[ext_resource path="res://KeyAreaScripts/KeyAreaL.gd" type="Script" id=16]
+[ext_resource path="res://KeyAreaScripts/KeyAreaD.gd" type="Script" id=17]
+[ext_resource path="res://KeyAreaScripts/KeyAreaF.gd" type="Script" id=18]
+[ext_resource path="res://KeyAreaScripts/KeyAreaG.gd" type="Script" id=19]
+[ext_resource path="res://KeyAreaScripts/KeyAreaK.gd" type="Script" id=20]
+[ext_resource path="res://KeyAreaScripts/KeyAreaS.gd" type="Script" id=21]
+[ext_resource path="res://KeyAreaScripts/KeyAreaH.gd" type="Script" id=22]
+[ext_resource path="res://KeyAreaScripts/KeyAreaN.gd" type="Script" id=23]
+[ext_resource path="res://KeyAreaScripts/KeyAreaX.gd" type="Script" id=24]
+[ext_resource path="res://KeyAreaScripts/KeyAreaV.gd" type="Script" id=25]
+[ext_resource path="res://KeyAreaScripts/KeyAreaZ.gd" type="Script" id=26]
+[ext_resource path="res://KeyAreaScripts/KeyAreaM.gd" type="Script" id=27]
+[ext_resource path="res://KeyAreaScripts/KeyAreaC.gd" type="Script" id=28]
+[ext_resource path="res://KeyAreaScripts/KeyAreaB.gd" type="Script" id=29]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 51.5, 75 )
@@ -27,13 +44,13 @@ anchor_bottom = 1.0
 color = Color( 0.4, 0.301961, 0.529412, 1 )
 script = ExtResource( 2 )
 
-[node name="Key1" type="ColorRect" parent="ColorRect"]
+[node name="KeyQ" type="ColorRect" parent="ColorRect"]
 anchor_top = 0.1
 anchor_right = 0.1
 anchor_bottom = 0.37
 color = Color( 0.0784314, 1, 0, 0.180392 )
 
-[node name="Label" type="Label" parent="ColorRect/Key1"]
+[node name="Label" type="Label" parent="ColorRect/KeyQ"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -45,23 +62,471 @@ margin_bottom = 7.0
 text = "Q"
 align = 1
 
-[node name="KeyAreaQ" type="Area2D" parent="ColorRect/Key1"]
+[node name="KeyAreaQ" type="Area2D" parent="ColorRect/KeyQ"]
 position = Vector2( 260, 132 )
 collision_layer = 0
 script = ExtResource( 3 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/Key1/KeyAreaQ"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/KeyQ/KeyAreaQ"]
 position = Vector2( -208.5, -57 )
 shape = SubResource( 1 )
 
-[node name="Key2" type="ColorRect" parent="ColorRect"]
+[node name="KeyA" type="ColorRect" parent="ColorRect"]
+anchor_left = 0.05
+anchor_top = 0.37
+anchor_right = 0.15
+anchor_bottom = 0.64
+color = Color( 0.0784314, 1, 0, 0.180392 )
+
+[node name="Label" type="Label" parent="ColorRect/KeyA"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -7.0
+margin_right = 20.0
+margin_bottom = 7.0
+text = "A"
+align = 1
+
+[node name="KeyAreaA" type="Area2D" parent="ColorRect/KeyA"]
+position = Vector2( 260, 132 )
+collision_layer = 0
+script = ExtResource( 15 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/KeyA/KeyAreaA"]
+position = Vector2( -208.5, -57 )
+shape = SubResource( 1 )
+
+[node name="KeyS" type="ColorRect" parent="ColorRect"]
+anchor_left = 0.15
+anchor_top = 0.37
+anchor_right = 0.25
+anchor_bottom = 0.64
+color = Color( 0.0784314, 1, 0, 0.180392 )
+
+[node name="Label" type="Label" parent="ColorRect/KeyS"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -7.0
+margin_right = 20.0
+margin_bottom = 7.0
+text = "S"
+align = 1
+
+[node name="KeyAreaS" type="Area2D" parent="ColorRect/KeyS"]
+position = Vector2( 260, 132 )
+collision_layer = 0
+script = ExtResource( 21 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/KeyS/KeyAreaS"]
+position = Vector2( -208.5, -57 )
+shape = SubResource( 1 )
+
+[node name="KeyD" type="ColorRect" parent="ColorRect"]
+anchor_left = 0.25
+anchor_top = 0.37
+anchor_right = 0.35
+anchor_bottom = 0.64
+color = Color( 0.0784314, 1, 0, 0.180392 )
+
+[node name="Label" type="Label" parent="ColorRect/KeyD"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -7.0
+margin_right = 20.0
+margin_bottom = 7.0
+text = "D"
+align = 1
+
+[node name="KeyAreaD" type="Area2D" parent="ColorRect/KeyD"]
+position = Vector2( 260, 132 )
+collision_layer = 0
+script = ExtResource( 17 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/KeyD/KeyAreaD"]
+position = Vector2( -208.5, -57 )
+shape = SubResource( 1 )
+
+[node name="KeyF" type="ColorRect" parent="ColorRect"]
+anchor_left = 0.35
+anchor_top = 0.37
+anchor_right = 0.45
+anchor_bottom = 0.64
+color = Color( 0.0784314, 1, 0, 0.180392 )
+
+[node name="Label" type="Label" parent="ColorRect/KeyF"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -7.0
+margin_right = 20.0
+margin_bottom = 7.0
+text = "F"
+align = 1
+
+[node name="KeyAreaF" type="Area2D" parent="ColorRect/KeyF"]
+position = Vector2( 260, 132 )
+collision_layer = 0
+script = ExtResource( 18 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/KeyF/KeyAreaF"]
+position = Vector2( -208.5, -57 )
+shape = SubResource( 1 )
+
+[node name="KeyG" type="ColorRect" parent="ColorRect"]
+anchor_left = 0.45
+anchor_top = 0.37
+anchor_right = 0.55
+anchor_bottom = 0.64
+color = Color( 0.0784314, 1, 0, 0.180392 )
+
+[node name="Label" type="Label" parent="ColorRect/KeyG"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -7.0
+margin_right = 20.0
+margin_bottom = 7.0
+text = "G"
+align = 1
+
+[node name="KeyAreaG" type="Area2D" parent="ColorRect/KeyG"]
+position = Vector2( 260, 132 )
+collision_layer = 0
+script = ExtResource( 19 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/KeyG/KeyAreaG"]
+position = Vector2( -208.5, -57 )
+shape = SubResource( 1 )
+
+[node name="KeyH" type="ColorRect" parent="ColorRect"]
+anchor_left = 0.55
+anchor_top = 0.37
+anchor_right = 0.65
+anchor_bottom = 0.64
+color = Color( 0.0784314, 1, 0, 0.180392 )
+
+[node name="Label" type="Label" parent="ColorRect/KeyH"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -7.0
+margin_right = 20.0
+margin_bottom = 7.0
+text = "H"
+align = 1
+
+[node name="KeyAreaH" type="Area2D" parent="ColorRect/KeyH"]
+position = Vector2( 260, 132 )
+collision_layer = 0
+script = ExtResource( 22 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/KeyH/KeyAreaH"]
+position = Vector2( -208.5, -57 )
+shape = SubResource( 1 )
+
+[node name="KeyJ" type="ColorRect" parent="ColorRect"]
+anchor_left = 0.65
+anchor_top = 0.37
+anchor_right = 0.75
+anchor_bottom = 0.64
+color = Color( 0.0784314, 1, 0, 0.180392 )
+
+[node name="Label" type="Label" parent="ColorRect/KeyJ"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -7.0
+margin_right = 20.0
+margin_bottom = 7.0
+text = "J"
+align = 1
+
+[node name="KeyAreaJ" type="Area2D" parent="ColorRect/KeyJ"]
+position = Vector2( 260, 132 )
+collision_layer = 0
+script = ExtResource( 22 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/KeyJ/KeyAreaJ"]
+position = Vector2( -208.5, -57 )
+shape = SubResource( 1 )
+
+[node name="KeyK" type="ColorRect" parent="ColorRect"]
+anchor_left = 0.75
+anchor_top = 0.37
+anchor_right = 0.85
+anchor_bottom = 0.64
+color = Color( 0.0784314, 1, 0, 0.180392 )
+
+[node name="Label" type="Label" parent="ColorRect/KeyK"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -7.0
+margin_right = 20.0
+margin_bottom = 7.0
+text = "K"
+align = 1
+
+[node name="KeyAreaK" type="Area2D" parent="ColorRect/KeyK"]
+position = Vector2( 260, 132 )
+collision_layer = 0
+script = ExtResource( 20 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/KeyK/KeyAreaK"]
+position = Vector2( -208.5, -57 )
+shape = SubResource( 1 )
+
+[node name="KeyL" type="ColorRect" parent="ColorRect"]
+anchor_left = 0.85
+anchor_top = 0.37
+anchor_right = 0.95
+anchor_bottom = 0.64
+color = Color( 0.0784314, 1, 0, 0.180392 )
+
+[node name="Label" type="Label" parent="ColorRect/KeyL"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -7.0
+margin_right = 20.0
+margin_bottom = 7.0
+text = "L"
+align = 1
+
+[node name="KeyAreaL" type="Area2D" parent="ColorRect/KeyL"]
+position = Vector2( 260, 132 )
+collision_layer = 0
+script = ExtResource( 16 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/KeyL/KeyAreaL"]
+position = Vector2( -208.5, -57 )
+shape = SubResource( 1 )
+
+[node name="KeyZ" type="ColorRect" parent="ColorRect"]
+anchor_left = 0.15
+anchor_top = 0.64
+anchor_right = 0.25
+anchor_bottom = 0.9
+color = Color( 0.0784314, 1, 0, 0.180392 )
+
+[node name="Label" type="Label" parent="ColorRect/KeyZ"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -7.0
+margin_right = 20.0
+margin_bottom = 7.0
+text = "Z"
+align = 1
+
+[node name="KeyAreaZ" type="Area2D" parent="ColorRect/KeyZ"]
+position = Vector2( 260, 132 )
+collision_layer = 0
+script = ExtResource( 26 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/KeyZ/KeyAreaZ"]
+position = Vector2( -208.5, -57 )
+shape = SubResource( 1 )
+
+[node name="KeyX" type="ColorRect" parent="ColorRect"]
+anchor_left = 0.25
+anchor_top = 0.64
+anchor_right = 0.35
+anchor_bottom = 0.9
+color = Color( 0.0784314, 1, 0, 0.180392 )
+
+[node name="Label" type="Label" parent="ColorRect/KeyX"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -7.0
+margin_right = 20.0
+margin_bottom = 7.0
+text = "X"
+align = 1
+
+[node name="KeyAreaX" type="Area2D" parent="ColorRect/KeyX"]
+position = Vector2( 260, 132 )
+collision_layer = 0
+script = ExtResource( 24 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/KeyX/KeyAreaX"]
+position = Vector2( -208.5, -57 )
+shape = SubResource( 1 )
+
+[node name="KeyC" type="ColorRect" parent="ColorRect"]
+anchor_left = 0.35
+anchor_top = 0.64
+anchor_right = 0.45
+anchor_bottom = 0.9
+color = Color( 0.0784314, 1, 0, 0.180392 )
+
+[node name="Label" type="Label" parent="ColorRect/KeyC"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -7.0
+margin_right = 20.0
+margin_bottom = 7.0
+text = "C"
+align = 1
+
+[node name="KeyAreaC" type="Area2D" parent="ColorRect/KeyC"]
+position = Vector2( 260, 132 )
+collision_layer = 0
+script = ExtResource( 28 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/KeyC/KeyAreaC"]
+position = Vector2( -208.5, -57 )
+shape = SubResource( 1 )
+
+[node name="KeyV" type="ColorRect" parent="ColorRect"]
+anchor_left = 0.45
+anchor_top = 0.64
+anchor_right = 0.55
+anchor_bottom = 0.9
+color = Color( 0.0784314, 1, 0, 0.180392 )
+
+[node name="Label" type="Label" parent="ColorRect/KeyV"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -7.0
+margin_right = 20.0
+margin_bottom = 7.0
+text = "V"
+align = 1
+
+[node name="KeyAreaV" type="Area2D" parent="ColorRect/KeyV"]
+position = Vector2( 260, 132 )
+collision_layer = 0
+script = ExtResource( 25 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/KeyV/KeyAreaV"]
+position = Vector2( -208.5, -57 )
+shape = SubResource( 1 )
+
+[node name="KeyB" type="ColorRect" parent="ColorRect"]
+anchor_left = 0.55
+anchor_top = 0.64
+anchor_right = 0.65
+anchor_bottom = 0.9
+color = Color( 0.0784314, 1, 0, 0.180392 )
+
+[node name="Label" type="Label" parent="ColorRect/KeyB"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -7.0
+margin_right = 20.0
+margin_bottom = 7.0
+text = "B"
+align = 1
+
+[node name="KeyAreaB" type="Area2D" parent="ColorRect/KeyB"]
+position = Vector2( 260, 132 )
+collision_layer = 0
+script = ExtResource( 29 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/KeyB/KeyAreaB"]
+position = Vector2( -208.5, -57 )
+shape = SubResource( 1 )
+
+[node name="KeyN" type="ColorRect" parent="ColorRect"]
+anchor_left = 0.65
+anchor_top = 0.64
+anchor_right = 0.75
+anchor_bottom = 0.9
+color = Color( 0.0784314, 1, 0, 0.180392 )
+
+[node name="Label" type="Label" parent="ColorRect/KeyN"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -7.0
+margin_right = 20.0
+margin_bottom = 7.0
+text = "N"
+align = 1
+
+[node name="KeyAreaN" type="Area2D" parent="ColorRect/KeyN"]
+position = Vector2( 260, 132 )
+collision_layer = 0
+script = ExtResource( 23 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/KeyN/KeyAreaN"]
+position = Vector2( -208.5, -57 )
+shape = SubResource( 1 )
+
+[node name="KeyM" type="ColorRect" parent="ColorRect"]
+anchor_left = 0.75
+anchor_top = 0.64
+anchor_right = 0.85
+anchor_bottom = 0.9
+color = Color( 0.0784314, 1, 0, 0.180392 )
+
+[node name="Label" type="Label" parent="ColorRect/KeyM"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -7.0
+margin_right = 20.0
+margin_bottom = 7.0
+text = "M"
+align = 1
+
+[node name="KeyAreaM" type="Area2D" parent="ColorRect/KeyM"]
+position = Vector2( 260, 132 )
+collision_layer = 0
+script = ExtResource( 27 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/KeyM/KeyAreaM"]
+position = Vector2( -208.5, -57 )
+shape = SubResource( 1 )
+
+[node name="KeyW" type="ColorRect" parent="ColorRect"]
 anchor_left = 0.1
 anchor_top = 0.1
 anchor_right = 0.2
 anchor_bottom = 0.37
 color = Color( 0.0784314, 1, 0, 0.180392 )
 
-[node name="Label" type="Label" parent="ColorRect/Key2"]
+[node name="Label" type="Label" parent="ColorRect/KeyW"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -73,22 +538,22 @@ margin_bottom = 7.0
 text = "W"
 align = 1
 
-[node name="KeyAreaW" type="Area2D" parent="ColorRect/Key2"]
+[node name="KeyAreaW" type="Area2D" parent="ColorRect/KeyW"]
 collision_layer = 0
 script = ExtResource( 6 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/Key2/KeyAreaW"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/KeyW/KeyAreaW"]
 position = Vector2( 51, 75 )
 shape = SubResource( 1 )
 
-[node name="Key3" type="ColorRect" parent="ColorRect"]
+[node name="KeyE" type="ColorRect" parent="ColorRect"]
 anchor_left = 0.2
 anchor_top = 0.1
 anchor_right = 0.3
 anchor_bottom = 0.37
 color = Color( 0.0784314, 1, 0, 0.180392 )
 
-[node name="Label" type="Label" parent="ColorRect/Key3"]
+[node name="Label" type="Label" parent="ColorRect/KeyE"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -100,22 +565,22 @@ margin_bottom = 7.0
 text = "E"
 align = 1
 
-[node name="KeyAreaE" type="Area2D" parent="ColorRect/Key3"]
+[node name="KeyAreaE" type="Area2D" parent="ColorRect/KeyE"]
 collision_layer = 0
 script = ExtResource( 7 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/Key3/KeyAreaE"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/KeyE/KeyAreaE"]
 position = Vector2( 51, 75 )
 shape = SubResource( 1 )
 
-[node name="Key4" type="ColorRect" parent="ColorRect"]
+[node name="KeyR" type="ColorRect" parent="ColorRect"]
 anchor_left = 0.3
 anchor_top = 0.1
 anchor_right = 0.4
 anchor_bottom = 0.37
 color = Color( 0.0784314, 1, 0, 0.180392 )
 
-[node name="Label" type="Label" parent="ColorRect/Key4"]
+[node name="Label" type="Label" parent="ColorRect/KeyR"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -127,22 +592,22 @@ margin_bottom = 7.0
 text = "R"
 align = 1
 
-[node name="KeyAreaR" type="Area2D" parent="ColorRect/Key4"]
+[node name="KeyAreaR" type="Area2D" parent="ColorRect/KeyR"]
 collision_layer = 0
 script = ExtResource( 8 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/Key4/KeyAreaR"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/KeyR/KeyAreaR"]
 position = Vector2( 51, 75 )
 shape = SubResource( 1 )
 
-[node name="Key5" type="ColorRect" parent="ColorRect"]
+[node name="KeyT" type="ColorRect" parent="ColorRect"]
 anchor_left = 0.4
 anchor_top = 0.1
 anchor_right = 0.5
 anchor_bottom = 0.37
 color = Color( 0.0784314, 1, 0, 0.180392 )
 
-[node name="Label" type="Label" parent="ColorRect/Key5"]
+[node name="Label" type="Label" parent="ColorRect/KeyT"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -154,22 +619,22 @@ margin_bottom = 7.0
 text = "T"
 align = 1
 
-[node name="KeyAreaT" type="Area2D" parent="ColorRect/Key5"]
+[node name="KeyAreaT" type="Area2D" parent="ColorRect/KeyT"]
 collision_layer = 0
 script = ExtResource( 9 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/Key5/KeyAreaT"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/KeyT/KeyAreaT"]
 position = Vector2( 51, 75 )
 shape = SubResource( 1 )
 
-[node name="Key6" type="ColorRect" parent="ColorRect"]
+[node name="KeyY" type="ColorRect" parent="ColorRect"]
 anchor_left = 0.5
 anchor_top = 0.1
 anchor_right = 0.6
 anchor_bottom = 0.37
 color = Color( 0.0784314, 1, 0, 0.180392 )
 
-[node name="Label" type="Label" parent="ColorRect/Key6"]
+[node name="Label" type="Label" parent="ColorRect/KeyY"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -181,22 +646,22 @@ margin_bottom = 7.0
 text = "Y"
 align = 1
 
-[node name="KeyAreaY" type="Area2D" parent="ColorRect/Key6"]
+[node name="KeyAreaY" type="Area2D" parent="ColorRect/KeyY"]
 collision_layer = 0
 script = ExtResource( 11 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/Key6/KeyAreaY"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/KeyY/KeyAreaY"]
 position = Vector2( 51, 75 )
 shape = SubResource( 1 )
 
-[node name="Key7" type="ColorRect" parent="ColorRect"]
+[node name="KeyU" type="ColorRect" parent="ColorRect"]
 anchor_left = 0.6
 anchor_top = 0.1
 anchor_right = 0.7
 anchor_bottom = 0.37
 color = Color( 0.0784314, 1, 0, 0.180392 )
 
-[node name="Label" type="Label" parent="ColorRect/Key7"]
+[node name="Label" type="Label" parent="ColorRect/KeyU"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -208,22 +673,22 @@ margin_bottom = 7.0
 text = "U"
 align = 1
 
-[node name="KeyAreaU" type="Area2D" parent="ColorRect/Key7"]
+[node name="KeyAreaU" type="Area2D" parent="ColorRect/KeyU"]
 collision_layer = 0
 script = ExtResource( 10 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/Key7/KeyAreaU"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/KeyU/KeyAreaU"]
 position = Vector2( 51, 75 )
 shape = SubResource( 1 )
 
-[node name="Key8" type="ColorRect" parent="ColorRect"]
+[node name="KeyI" type="ColorRect" parent="ColorRect"]
 anchor_left = 0.7
 anchor_top = 0.1
 anchor_right = 0.8
 anchor_bottom = 0.37
 color = Color( 0.0784314, 1, 0, 0.180392 )
 
-[node name="Label" type="Label" parent="ColorRect/Key8"]
+[node name="Label" type="Label" parent="ColorRect/KeyI"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -235,22 +700,22 @@ margin_bottom = 7.0
 text = "I"
 align = 1
 
-[node name="KeyAreaI" type="Area2D" parent="ColorRect/Key8"]
+[node name="KeyAreaI" type="Area2D" parent="ColorRect/KeyI"]
 collision_layer = 0
 script = ExtResource( 12 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/Key8/KeyAreaI"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/KeyI/KeyAreaI"]
 position = Vector2( 51, 75 )
 shape = SubResource( 1 )
 
-[node name="Key9" type="ColorRect" parent="ColorRect"]
+[node name="KeyO" type="ColorRect" parent="ColorRect"]
 anchor_left = 0.8
 anchor_top = 0.1
 anchor_right = 0.9
 anchor_bottom = 0.37
 color = Color( 0.0784314, 1, 0, 0.180392 )
 
-[node name="Label" type="Label" parent="ColorRect/Key9"]
+[node name="Label" type="Label" parent="ColorRect/KeyO"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -262,22 +727,22 @@ margin_bottom = 7.0
 text = "O"
 align = 1
 
-[node name="KeyAreaO" type="Area2D" parent="ColorRect/Key9"]
+[node name="KeyAreaO" type="Area2D" parent="ColorRect/KeyO"]
 collision_layer = 0
 script = ExtResource( 13 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/Key9/KeyAreaO"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/KeyO/KeyAreaO"]
 position = Vector2( 51, 75 )
 shape = SubResource( 1 )
 
-[node name="Key10" type="ColorRect" parent="ColorRect"]
+[node name="KeyP" type="ColorRect" parent="ColorRect"]
 anchor_left = 0.9
 anchor_top = 0.1
 anchor_right = 1.0
 anchor_bottom = 0.37
 color = Color( 0.0784314, 1, 0, 0.180392 )
 
-[node name="Label" type="Label" parent="ColorRect/Key10"]
+[node name="Label" type="Label" parent="ColorRect/KeyP"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -289,16 +754,21 @@ margin_bottom = 7.0
 text = "P"
 align = 1
 
-[node name="KeyAreaP" type="Area2D" parent="ColorRect/Key10"]
+[node name="KeyAreaP" type="Area2D" parent="ColorRect/KeyP"]
 collision_layer = 0
 script = ExtResource( 4 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/Key10/KeyAreaP"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/KeyP/KeyAreaP"]
 position = Vector2( 51, 75 )
 shape = SubResource( 1 )
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
-position = Vector2( -80, 150 )
+
+position = Vector2( 149, 48 )
+
+[node name="Robot" parent="." instance=ExtResource( 14 )]
+position = Vector2( 840, 40 )
+
 
 [node name="RobotSpawn" type="Position2D" parent="."]
 position = Vector2( 758, 562 )
