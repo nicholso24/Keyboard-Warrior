@@ -3,11 +3,13 @@ extends KinematicBody2D
 signal hit
 export (int) var speed = 500
 
+
 onready var target = position
 var velocity = Vector2()
 
 func _ready():
 	$AnimatedSprite.play()
+
 
 func _input(event):
 	if event.is_action_pressed("move"):
@@ -20,8 +22,15 @@ func _physics_process(delta):
 		$AnimatedSprite.animation = "run"
 		$AnimatedSprite.flip_h = velocity.x < 0
 		#velocity = move_and_collide(velocity)
-		var player = move_and_collide(velocity * delta)
+		var enemy = move_and_collide(velocity * delta)
+		if enemy:
+			hide()
+			$CollisionShape2D.set_deferred("disabled",true)
+			emit_signal("hit")
+			
+			
 		
+
 		if player:
 				hide()
 				yield(get_tree().create_timer(5), "timeout")
@@ -32,6 +41,13 @@ func _physics_process(delta):
 		
 func kill():
 	print("HAHAHA")
+	
+func start(new_position):
+	position = new_position
+	show()
+	$CollisionShape2D.disabled = false
+	
+
 
 
 
