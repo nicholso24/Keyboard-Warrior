@@ -5,7 +5,6 @@
 [ext_resource path="res://KeyAreaScripts/KeyAreaQ.gd" type="Script" id=3]
 [ext_resource path="res://KeyAreaScripts/KeyAreaP.gd" type="Script" id=4]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=5]
-
 [ext_resource path="res://KeyAreaScripts/KeyAreaW.gd" type="Script" id=6]
 [ext_resource path="res://KeyAreaScripts/KeyAreaE.gd" type="Script" id=7]
 [ext_resource path="res://KeyAreaScripts/KeyAreaR.gd" type="Script" id=8]
@@ -30,7 +29,6 @@
 [ext_resource path="res://KeyAreaScripts/KeyAreaM.gd" type="Script" id=27]
 [ext_resource path="res://KeyAreaScripts/KeyAreaC.gd" type="Script" id=28]
 [ext_resource path="res://KeyAreaScripts/KeyAreaB.gd" type="Script" id=29]
-
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 51.5, 75 )
@@ -763,30 +761,16 @@ position = Vector2( 51, 75 )
 shape = SubResource( 1 )
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
-
 position = Vector2( 149, 48 )
 
 [node name="Robot" parent="." instance=ExtResource( 14 )]
 position = Vector2( 840, 40 )
 
-
 [node name="RobotSpawn" type="Position2D" parent="."]
 position = Vector2( 758, 562 )
 
 [node name="RobotTimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 4.0
+autostart = true
 
-[node name="StartPosition" type="Position2D" parent="."]
-position = Vector2( 530, 119 )
-
-[node name="HUD" parent="." instance=ExtResource( 15 )]
-
-[node name="ScoreTimer" type="Timer" parent="."]
-
-[node name="StartTimer" type="Timer" parent="."]
-one_shot = true
-
-[connection signal="hit" from="Player" to="." method="game_over"]
 [connection signal="timeout" from="RobotTimer" to="." method="_on_RobotTimer_timeout"]
-[connection signal="start_game" from="HUD" to="." method="new_game"]
-[connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
