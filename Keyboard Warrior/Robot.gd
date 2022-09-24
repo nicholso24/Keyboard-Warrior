@@ -14,13 +14,10 @@ func _ready():
 func _physics_process(delta):
 	if player:
 		yield(get_tree().create_timer(0.25), "timeout")
-		velocity = Vector2.ZERO
-		velocity = position.direction_to(player.position) * 100
+		$AnimatedSprite_Drone.animation = "run"
+		var velocity = position.direction_to(player.position) * 100
 		velocity = move_and_collide(velocity * delta)
-		if velocity != 0:
-			$AnimatedSprite_Drone.animation = "run"
-			$AnimatedSprite_Drone.flip_h = velocity.x < 0
-		else:
+	else:
 			$AnimatedSprite_Drone.animation = "idle"
 		
 func kill():

@@ -20,18 +20,20 @@ func _physics_process(delta):
 		$AnimatedSprite.animation = "run"
 		$AnimatedSprite.flip_h = velocity.x < 0
 		#velocity = move_and_collide(velocity)
-		var player = move_and_collide(velocity * delta)
+		var enemy = move_and_collide(velocity * delta)
 		
-		if player:
+		if enemy:
+				emit_signal("hit")
 				hide()
-				yield(get_tree().create_timer(5), "timeout")
-				show()
 	else:
 		$AnimatedSprite.animation = "idle"
 		
-		
 func kill():
 	print("HAHAHA")
+func start(new_position):
+		position = new_position
+		show()
+		$CollisionShape2D.disabled = false
 
 
 

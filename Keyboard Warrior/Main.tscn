@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Key.gd" type="Script" id=2]
@@ -13,7 +13,6 @@
 [ext_resource path="res://KeyAreaScripts/KeyAreaY.gd" type="Script" id=11]
 [ext_resource path="res://KeyAreaScripts/KeyAreaI.gd" type="Script" id=12]
 [ext_resource path="res://KeyAreaScripts/KeyAreaO.gd" type="Script" id=13]
-[ext_resource path="res://Robot.tscn" type="PackedScene" id=14]
 [ext_resource path="res://KeyAreaScripts/KeyAreaA.gd" type="Script" id=15]
 [ext_resource path="res://KeyAreaScripts/KeyAreaL.gd" type="Script" id=16]
 [ext_resource path="res://KeyAreaScripts/KeyAreaD.gd" type="Script" id=17]
@@ -29,12 +28,20 @@
 [ext_resource path="res://KeyAreaScripts/KeyAreaM.gd" type="Script" id=27]
 [ext_resource path="res://KeyAreaScripts/KeyAreaC.gd" type="Script" id=28]
 [ext_resource path="res://KeyAreaScripts/KeyAreaB.gd" type="Script" id=29]
+[ext_resource path="res://HUD.tscn" type="PackedScene" id=30]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 51.5, 75 )
 
+[sub_resource type="Curve2D" id=2]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 1081, -59, 0, 0, 0, 0, -30, -68, 0, 0, 0, 0, -23, 600, 0, 0, 0, 0, 1077, 595 )
+}
+
 [node name="Main" type="Node"]
 script = ExtResource( 1 )
+
+[node name="HUD" parent="." instance=ExtResource( 30 )]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -761,16 +768,27 @@ position = Vector2( 51, 75 )
 shape = SubResource( 1 )
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
-position = Vector2( 149, 48 )
-
-[node name="Robot" parent="." instance=ExtResource( 14 )]
-position = Vector2( 840, 40 )
+position = Vector2( -95, 77 )
 
 [node name="RobotSpawn" type="Position2D" parent="."]
 position = Vector2( 758, 562 )
 
 [node name="RobotTimer" type="Timer" parent="."]
-wait_time = 4.0
-autostart = true
 
+[node name="ScoreTimer" type="Timer" parent="."]
+
+[node name="StartTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="StartPosition" type="Position2D" parent="."]
+position = Vector2( 510, 189 )
+
+[node name="MobPath" type="Path2D" parent="."]
+curve = SubResource( 2 )
+
+[node name="MobSpawn" type="PathFollow2D" parent="MobPath"]
+
+[connection signal="start_game" from="HUD" to="." method="new_game"]
+[connection signal="hit" from="Player" to="." method="game_over"]
 [connection signal="timeout" from="RobotTimer" to="." method="_on_RobotTimer_timeout"]
+[connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
