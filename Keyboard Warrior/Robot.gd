@@ -4,7 +4,9 @@ extends KinematicBody2D
 # var a = 2
 # var b = "text"
 onready var player = get_node("/root/Main/Player")
-var velocity
+var speed = 100
+var dead = false
+var velocity = Vector2()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,12 +16,18 @@ func _ready():
 func _physics_process(delta):
 	if player:
 		yield(get_tree().create_timer(0.25), "timeout")
-		$AnimatedSprite_Drone.animation = "run"
-		var velocity = position.direction_to(player.position) * 100
+		velocity = Vector2.ZERO
+		velocity = position.direction_to(player.position) * speed
 		velocity = move_and_collide(velocity * delta)
-	else:
-			$AnimatedSprite_Drone.animation = "idle"
+		if dead:
+			$AnimatedSprite_Drone.animation = "death"
+			speed = 0
+		else:
+			$AnimatedSprite_Drone.animation = "run"
+			$AnimatedSprite_Drone.flip_h = velocity.x < 0
 		
 func kill():
-	$AnimatedSprite_Drone.animation = "death"
-	queue_free()
+	dead = true
+	$CollisionShape2D.set_deferred("disabled", true)
+	yield($AnimatedSprite_Drone, "animation_finished")
+	hide()
