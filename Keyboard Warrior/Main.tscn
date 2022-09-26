@@ -787,6 +787,8 @@ position = Vector2( 510, 189 )
 curve = SubResource( 2 )
 
 [node name="MobSpawn" type="PathFollow2D" parent="MobPath"]
+position = Vector2( 1081, -59 )
+rotation = -3.13349
 
 [connection signal="start_game" from="HUD" to="." method="new_game"]
 [connection signal="hit" from="Player" to="." method="game_over"]
