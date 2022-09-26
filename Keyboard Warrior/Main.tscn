@@ -774,6 +774,7 @@ position = Vector2( -95, 77 )
 position = Vector2( 758, 562 )
 
 [node name="RobotTimer" type="Timer" parent="."]
+wait_time = 5.0
 
 [node name="ScoreTimer" type="Timer" parent="."]
 
@@ -790,7 +791,21 @@ curve = SubResource( 2 )
 position = Vector2( 1081, -59 )
 rotation = -3.13349
 
+[node name="TermTimer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="UnstopPosition1" type="Position2D" parent="."]
+position = Vector2( -3, 288 )
+
+[node name="UnstopPosition2" type="Position2D" parent="."]
+position = Vector2( 1094, 288 )
+
+[node name="UnstopTimer" type="Timer" parent="."]
+wait_time = 10.0
+
 [connection signal="start_game" from="HUD" to="." method="new_game"]
 [connection signal="hit" from="Player" to="." method="game_over"]
 [connection signal="timeout" from="RobotTimer" to="." method="_on_RobotTimer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
+[connection signal="timeout" from="TermTimer" to="." method="_on_TermTimer_timeout"]
+[connection signal="timeout" from="UnstopTimer" to="." method="_on_UnstopTimer_timeout"]
