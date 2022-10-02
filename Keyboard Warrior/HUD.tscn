@@ -41,5 +41,23 @@ margin_right = 62.0
 margin_bottom = -86.0
 text = "Start!"
 
+[node name="NuxButton" type="CheckButton" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -7.0
+margin_top = 237.0
+margin_right = 69.0
+margin_bottom = 277.0
+
+[node name="NuxLabel" type="Label" parent="NuxButton"]
+margin_left = -71.0
+margin_top = 13.0
+margin_right = -5.0
+margin_bottom = 27.0
+text = "Nux mode"
+
 [connection signal="timeout" from="MessageTimer" to="." method="_on_MessageTimer_timeout"]
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="toggled" from="NuxButton" to="." method="_on_CheckButton_toggled"]

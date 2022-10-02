@@ -27,6 +27,8 @@ func new_game():
 	
 	get_tree().call_group("mobs","queue_free")
 	$Player.start($StartPosition.position)
+	$Player.show()
+	$Player.target = $StartPosition.position
 	
 	$HUD.update_score(score)
 	yield($StartTimer,"timeout")

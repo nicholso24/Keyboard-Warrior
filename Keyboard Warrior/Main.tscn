@@ -796,7 +796,7 @@ curve = SubResource( 2 )
 
 [node name="MobSpawn" type="PathFollow2D" parent="MobPath"]
 position = Vector2( 1.03352, -54.902 )
-rotation = 0.00102623
+rotation = 0.00102818
 
 [node name="TermTimer" type="Timer" parent="."]
 wait_time = 3.0
@@ -819,7 +819,9 @@ position = Vector2( -36, 387 )
 [node name="UnstopPosition4" type="Position2D" parent="."]
 position = Vector2( 1056, 387 )
 
+[connection signal="nux_mode" from="HUD" to="Player" method="_on_HUD_nux_mode"]
 [connection signal="start_game" from="HUD" to="." method="new_game"]
+[connection signal="restart" from="Player" to="." method="game_over"]
 [connection signal="timeout" from="RobotTimer" to="." method="_on_RobotTimer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
 [connection signal="timeout" from="TermTimer" to="." method="_on_TermTimer_timeout"]

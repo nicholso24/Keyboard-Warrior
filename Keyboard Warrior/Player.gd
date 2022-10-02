@@ -5,13 +5,17 @@ export (int) var speed = 500
 
 onready var target = position
 var velocity = Vector2()
-
+signal restart
 func _ready():
+	hide()
 	$AnimatedSprite.play()
 
 func _input(event):
 	if event.is_action_pressed("move"):
 		target = get_global_mouse_position()
+	if event.is_action_pressed("esc"):
+		hide()
+		emit_signal("restart")
 
 func _physics_process(delta):
 	velocity = position.direction_to(target) * speed
@@ -39,3 +43,8 @@ func start(new_position):
 
 
 
+
+
+func _on_HUD_nux_mode():
+	collision_layer = 4
+	collision_mask = 4
