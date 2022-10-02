@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Key.gd" type="Script" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://KeyAreaScripts/KeyAreaY.gd" type="Script" id=11]
 [ext_resource path="res://KeyAreaScripts/KeyAreaI.gd" type="Script" id=12]
 [ext_resource path="res://KeyAreaScripts/KeyAreaO.gd" type="Script" id=13]
+[ext_resource path="res://SoundEffects/Dani Stob - Main Menu Theme - Full.wav" type="AudioStream" id=14]
 [ext_resource path="res://KeyAreaScripts/KeyAreaA.gd" type="Script" id=15]
 [ext_resource path="res://KeyAreaScripts/KeyAreaL.gd" type="Script" id=16]
 [ext_resource path="res://KeyAreaScripts/KeyAreaD.gd" type="Script" id=17]
@@ -802,6 +803,9 @@ position = Vector2( 1094, 288 )
 
 [node name="UnstopTimer" type="Timer" parent="."]
 wait_time = 10.0
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
 
 [connection signal="start_game" from="HUD" to="." method="new_game"]
 [connection signal="hit" from="Player" to="." method="game_over"]
