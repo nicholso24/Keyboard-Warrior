@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-signal hit
+#signal hit
 export (int) var speed = 500
 
 onready var target = position
@@ -22,14 +22,16 @@ func _physics_process(delta):
 		#velocity = move_and_collide(velocity)
 		var enemy = move_and_collide(velocity * delta)
 		
-		if enemy:
-				emit_signal("hit")
-				hide()
+		#if enemy:
+				#emit_signal("hit")
+				#hide()
 	else:
+		
 		$AnimatedSprite.animation = "idle"
 		
+		
 func kill():
-	print("HAHAHA")
+	pass
 func start(new_position):
 		position = new_position
 		show()

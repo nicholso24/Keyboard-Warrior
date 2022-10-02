@@ -3,7 +3,7 @@ extends CanvasLayer
 signal start_game
 
 func update_score(score):
-	$ScoreLabel.text = str(score)
+	$ScoreLabel.text = "Score: " + str(score)
 
 func show_message(text):
 	$MessageLabel.text = text
