@@ -22,7 +22,7 @@ func new_game():
 	$RobotTimer.start()
 	$TermTimer.start()
 	$UnstopTimer.start()
-	
+	$Music.play()
 	
 
 	
@@ -33,6 +33,7 @@ func game_over():
 	$TermTimer.stop()
 	$HUD.show_game_over()
 	$UnstopTimer.stop()
+	$Music.stop()
 	
 
 func _on_RobotTimer_timeout():
