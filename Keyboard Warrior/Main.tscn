@@ -36,7 +36,7 @@ extents = Vector2( 51.5, 75 )
 
 [sub_resource type="Curve2D" id=2]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 1081, -59, 0, 0, 0, 0, -30, -68, 0, 0, 0, 0, -23, 600, 0, 0, 0, 0, 1077, 595 )
+"points": PoolVector2Array( 0, 0, 0, 0, 1.03352, -54.902, 0, 0, 0, 0, 1063.41, -53.8105, 0, 0, 0, 0, 1062.38, 597.817, 0, 0, 0, 0, 1.03352, 593.451, 0, 0, 0, 0, 1.03352, -54.902 )
 }
 
 [node name="Main" type="Node"]
@@ -47,6 +47,10 @@ script = ExtResource( 1 )
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 2.0
+margin_bottom = 2.0
 color = Color( 0.4, 0.301961, 0.529412, 1 )
 script = ExtResource( 2 )
 
@@ -786,20 +790,22 @@ one_shot = true
 position = Vector2( 510, 189 )
 
 [node name="MobPath" type="Path2D" parent="."]
+position = Vector2( -0.9991, 50.2994 )
+scale = Vector2( 0.966697, 0.916168 )
 curve = SubResource( 2 )
 
 [node name="MobSpawn" type="PathFollow2D" parent="MobPath"]
-position = Vector2( 1081, -59 )
-rotation = -3.13349
+position = Vector2( 1.03352, -54.902 )
+rotation = 0.00102623
 
 [node name="TermTimer" type="Timer" parent="."]
 wait_time = 3.0
 
 [node name="UnstopPosition1" type="Position2D" parent="."]
-position = Vector2( -3, 288 )
+position = Vector2( -38, 213 )
 
 [node name="UnstopPosition2" type="Position2D" parent="."]
-position = Vector2( 1094, 288 )
+position = Vector2( 1056, 213 )
 
 [node name="UnstopTimer" type="Timer" parent="."]
 wait_time = 10.0
@@ -807,8 +813,13 @@ wait_time = 10.0
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 14 )
 
+[node name="UnstopPosition3" type="Position2D" parent="."]
+position = Vector2( -36, 387 )
+
+[node name="UnstopPosition4" type="Position2D" parent="."]
+position = Vector2( 1056, 387 )
+
 [connection signal="start_game" from="HUD" to="." method="new_game"]
-[connection signal="hit" from="Player" to="." method="game_over"]
 [connection signal="timeout" from="RobotTimer" to="." method="_on_RobotTimer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
 [connection signal="timeout" from="TermTimer" to="." method="_on_TermTimer_timeout"]
