@@ -33,9 +33,13 @@ func _physics_process(delta):
 		
 		$AnimatedSprite.animation = "idle"
 		
-		
+
+# Called when the player is inside the keyarea when it is activated
+# Nothing should happen to the player
 func kill():
 	pass
+	
+# Spawns the player in
 func start(new_position):
 		position = new_position
 		show()
