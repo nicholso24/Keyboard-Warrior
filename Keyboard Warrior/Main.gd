@@ -6,6 +6,7 @@ var term = load("res://Terminator.tscn")
 var unstop = load("res://Unstoppable.tscn")
 func _ready():
 	randomize()
+# Updates the score and difficulty depending on the score
 func update():
 	$HUD.update_score(score)
 	if score > 250:
@@ -19,6 +20,7 @@ func update():
 		$UnstopTimer.wait_time = 9
 		$RobotTimer.wait_time = 4
 		$TermTimer.wait_time = 2
+# Restarts the game to its starting state
 func new_game():
 	score = 0
 	
@@ -39,7 +41,7 @@ func new_game():
 	$Music.play()
 	
 
-	
+# Ends the gamea
 func game_over():
 	get_tree().call_group("mobs","queue_free")
 	$ScoreTimer.stop()
@@ -49,7 +51,7 @@ func game_over():
 	$UnstopTimer.stop()
 	$Music.stop()
 	
-
+# Spawns the enemy type "Robot"
 func _on_RobotTimer_timeout():
 	var mob_spawn_location = $MobPath/MobSpawn
 	mob_spawn_location.unit_offset = randf()
@@ -62,14 +64,12 @@ func _on_RobotTimer_timeout():
 	
 	robot.position = mob_spawn_location.position
 	
-	#robot.position = $RobotSpawn.get_position()
-
-
+# Increments the score every second
 func _on_ScoreTimer_timeout():
 	score += 1
 	$HUD.update_score(score)
 
-
+# Spawns the enemy type "Terminator"
 func _on_TermTimer_timeout():
 	var mob_spawn_location = $MobPath/MobSpawn
 	mob_spawn_location.unit_offset = randf()
@@ -82,7 +82,7 @@ func _on_TermTimer_timeout():
 	robot.position = mob_spawn_location.position
 	
 
-
+# Spawns the enemy type "Unstoppable"
 func _on_UnstopTimer_timeout():
 	var robot = unstop.instance()
 	add_child(robot)
@@ -118,10 +118,11 @@ func _on_UnstopTimer_timeout():
 			robot.position = mob_spawn_location.position
 			robot._on_spawn($UnstopPosition3)
 
+# Increases score when the enemy type terminator dies
 func term_died():
 	score = score + 4
 	update()
-	
+# Increases the score when the enemy type robot dies
 func robot_died():
 	score = score + 8
 	update()
