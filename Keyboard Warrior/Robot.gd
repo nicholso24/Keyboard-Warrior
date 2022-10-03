@@ -3,6 +3,7 @@
 # Robot enemy follows player continously
 extends KinematicBody2D
 signal player_hit
+signal robot_died
 
 # Declare member variables here. Examples:
 # var a = 2
