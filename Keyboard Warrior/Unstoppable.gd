@@ -8,8 +8,11 @@ func _on_spawn(var pos):
 	# Determines spawn location
 	# Used in the Main.gd
 	velocity = position.direction_to(pos.position) * speed
+	$AnimatedSprite.animation = "run"
+	$AnimatedSprite.play()
 
 func _physics_process(delta):
+	$AnimatedSprite.flip_h = velocity.x < 0
 	# Object is NULL or the player
 	# When robot collides with the player sets Object to not NULL
 	# If it does not collide with anything Object is NULL
