@@ -13,11 +13,9 @@ script = ExtResource( 2 )
 position = Vector2( 1, -0.5 )
 shape = SubResource( 1 )
 
-[node name="AnimatedSprite_Player" type="AnimatedSprite" parent="."]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 17.5, -12.5 )
 scale = Vector2( 1.8125, 1.72917 )
 frames = ExtResource( 1 )
 animation = "idle"
-frame = 5
 speed_scale = 0.83
-playing = true
