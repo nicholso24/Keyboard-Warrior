@@ -2,6 +2,7 @@ extends CanvasLayer
 
 signal start_game
 signal nux_mode
+signal normal_mode
 func update_score(score):
 	$ScoreLabel.text = "Score: " + str(score)
 
@@ -34,4 +35,7 @@ func _on_MessageTimer_timeout():
 
 
 func _on_CheckButton_toggled(button_pressed):
-	emit_signal("nux_mode")
+	if(button_pressed):
+		emit_signal("nux_mode")
+	else:
+		emit_signal("normal_mode")

@@ -819,6 +819,7 @@ position = Vector2( -36, 387 )
 [node name="UnstopPosition4" type="Position2D" parent="."]
 position = Vector2( 1056, 387 )
 
+[connection signal="normal_mode" from="HUD" to="Player" method="_on_HUD_normal_mode"]
 [connection signal="nux_mode" from="HUD" to="Player" method="_on_HUD_nux_mode"]
 [connection signal="start_game" from="HUD" to="." method="new_game"]
 [connection signal="restart" from="Player" to="." method="game_over"]
