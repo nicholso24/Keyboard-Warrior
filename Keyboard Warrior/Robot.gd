@@ -35,8 +35,9 @@ func _physics_process(delta):
 	
 	# If collided with the player
 	if object:
+	  player.death()
 	  emit_signal("player_hit")
-	  player.hide()
+	  
 	 
 	# If the robot is dead
 	if dead:

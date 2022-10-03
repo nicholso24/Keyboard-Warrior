@@ -22,7 +22,7 @@ anchor_bottom = 1.0
 margin_left = -136.0
 margin_top = -21.0
 margin_right = 136.0
-text = "Get Ready Gamer!"
+text = "Get Ready Gamer! (Press esc during play to stop)"
 align = 1
 valign = 1
 
