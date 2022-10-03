@@ -46,5 +46,12 @@ func start(new_position):
 
 
 func _on_HUD_nux_mode():
+	# Nux mode is on so makes the playable character immune
 	collision_layer = 4
 	collision_mask = 4
+
+
+func _on_HUD_normal_mode():
+	# Toggles off nux mode
+	collision_layer = 1
+	collision_mask = 1
