@@ -5,8 +5,11 @@ signal player_hit
 # var a = 2
 # var b = "text"
 onready var player = get_node("/root/Main/Player")
-signal robot_died
-export var speed = 150
+
+var speed = 150
+var dead = false
+var velocity = Vector2()
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,17 +19,25 @@ func _ready():
 func _physics_process(delta):
 	if player:
 		yield(get_tree().create_timer(0.25), "timeout")
-		$AnimatedSprite_Drone.animation = "run"
-		var velocity = position.direction_to(player.position) * speed
+
+		velocity = position.direction_to(player.position) * speed
 		var object = move_and_collide(velocity * delta)
-		
-		if object:
-			emit_signal("player_hit")
-			player.hide()
-	else:
-			$AnimatedSprite_Drone.animation = "idle"
+    
+    if object:
+      emit_signal("player_hit")
+      player.hide()
+      
+		if dead:
+			$AnimatedSprite_Drone.animation = "death"
+			speed = 0
+		else:
+			$AnimatedSprite_Drone.animation = "run"
+			$AnimatedSprite_Drone.flip_h = velocity.x < 0
 		
 func kill():
-	emit_signal("robot_died")
-	$AnimatedSprite_Drone.animation = "death"
+  emit_signal("robot_died")
+	dead = true
+	$CollisionShape2D.set_deferred("disabled", true)
+	yield($AnimatedSprite_Drone, "animation_finished")
 	queue_free()
+
