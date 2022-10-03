@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 #signal hit
-export (int) var speed = 500
+export (int) var speed = 400
 
 var dead = false
 onready var target = position
