@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Key.gd" type="Script" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://KeyAreaScripts/KeyAreaY.gd" type="Script" id=11]
 [ext_resource path="res://KeyAreaScripts/KeyAreaI.gd" type="Script" id=12]
 [ext_resource path="res://KeyAreaScripts/KeyAreaO.gd" type="Script" id=13]
+[ext_resource path="res://SoundEffects/Dani Stob - Main Menu Theme - Full.wav" type="AudioStream" id=14]
 [ext_resource path="res://KeyAreaScripts/KeyAreaA.gd" type="Script" id=15]
 [ext_resource path="res://KeyAreaScripts/KeyAreaL.gd" type="Script" id=16]
 [ext_resource path="res://KeyAreaScripts/KeyAreaD.gd" type="Script" id=17]
@@ -35,7 +36,7 @@ extents = Vector2( 51.5, 75 )
 
 [sub_resource type="Curve2D" id=2]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 1081, -59, 0, 0, 0, 0, -30, -68, 0, 0, 0, 0, -23, 600, 0, 0, 0, 0, 1077, 595 )
+"points": PoolVector2Array( 0, 0, 0, 0, 1.03352, -54.902, 0, 0, 0, 0, 1063.41, -53.8105, 0, 0, 0, 0, 1062.38, 597.817, 0, 0, 0, 0, 1.03352, 593.451, 0, 0, 0, 0, 1.03352, -54.902 )
 }
 
 [node name="Main" type="Node"]
@@ -47,9 +48,11 @@ script = ExtResource( 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 2.0
+
 margin_top = -23.0
 margin_right = 2.0
 margin_bottom = -23.0
+
 color = Color( 0.4, 0.301961, 0.529412, 1 )
 script = ExtResource( 2 )
 
@@ -778,6 +781,7 @@ position = Vector2( -95, 77 )
 position = Vector2( 758, 562 )
 
 [node name="RobotTimer" type="Timer" parent="."]
+wait_time = 5.0
 
 [node name="ScoreTimer" type="Timer" parent="."]
 
@@ -788,13 +792,40 @@ one_shot = true
 position = Vector2( 510, 189 )
 
 [node name="MobPath" type="Path2D" parent="."]
+position = Vector2( -0.9991, 50.2994 )
+scale = Vector2( 0.966697, 0.916168 )
 curve = SubResource( 2 )
 
 [node name="MobSpawn" type="PathFollow2D" parent="MobPath"]
-position = Vector2( 1081, -59 )
-rotation = -3.13349
+position = Vector2( 1.03352, -54.902 )
+rotation = 0.00102818
 
+[node name="TermTimer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="UnstopPosition1" type="Position2D" parent="."]
+position = Vector2( -38, 213 )
+
+[node name="UnstopPosition2" type="Position2D" parent="."]
+position = Vector2( 1056, 213 )
+
+[node name="UnstopTimer" type="Timer" parent="."]
+wait_time = 10.0
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+
+[node name="UnstopPosition3" type="Position2D" parent="."]
+position = Vector2( -36, 387 )
+
+[node name="UnstopPosition4" type="Position2D" parent="."]
+position = Vector2( 1056, 387 )
+
+[connection signal="normal_mode" from="HUD" to="Player" method="_on_HUD_normal_mode"]
+[connection signal="nux_mode" from="HUD" to="Player" method="_on_HUD_nux_mode"]
 [connection signal="start_game" from="HUD" to="." method="new_game"]
-[connection signal="hit" from="Player" to="." method="game_over"]
+[connection signal="restart" from="Player" to="." method="game_over"]
 [connection signal="timeout" from="RobotTimer" to="." method="_on_RobotTimer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
+[connection signal="timeout" from="TermTimer" to="." method="_on_TermTimer_timeout"]
+[connection signal="timeout" from="UnstopTimer" to="." method="_on_UnstopTimer_timeout"]
