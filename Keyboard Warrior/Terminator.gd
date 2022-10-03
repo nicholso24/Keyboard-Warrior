@@ -32,8 +32,8 @@ func _physics_process(delta):
 	
 	# If player is hit
 	if object:
+		player.death()
 		emit_signal("player_hit")
-		player.hide()
 	
 # If enemy is in key area when it is activated it calls the kill method on itself
 func kill():

@@ -3,6 +3,7 @@ extends KinematicBody2D
 #signal hit
 export (int) var speed = 500
 
+var dead = false
 onready var target = position
 var velocity = Vector2()
 signal restart
@@ -18,20 +19,19 @@ func _input(event):
 		emit_signal("restart")
 
 func _physics_process(delta):
-	velocity = position.direction_to(target) * speed
-	# look_at(target)
-	if position.distance_to(target) > 5:
-		$AnimatedSprite.animation = "run"
-		$AnimatedSprite.flip_h = velocity.x < 0
-		#velocity = move_and_collide(velocity)
-		var enemy = move_and_collide(velocity * delta)
-		
-		#if enemy:
-				#emit_signal("hit")
-				#hide()
+	if dead:
+		pass
 	else:
+		velocity = position.direction_to(target) * speed
+		# look_at(target)
+		if position.distance_to(target) > 5:
+			$AnimatedSprite.animation = "run"
+			$AnimatedSprite.flip_h = velocity.x < 0
+			#velocity = move_and_collide(velocity)
+			var enemy = move_and_collide(velocity * delta)
 		
-		$AnimatedSprite.animation = "idle"
+		else:
+			$AnimatedSprite.animation = "idle"
 		
 
 # Called when the player is inside the keyarea when it is activated
@@ -41,9 +41,16 @@ func kill():
 	
 # Spawns the player in
 func start(new_position):
+		dead = false
 		position = new_position
 		show()
 		$CollisionShape2D.disabled = false
+
+func death():
+	dead = true
+	$AnimatedSprite.animation = "death"
+	yield($AnimatedSprite, "animation_finished")
+	hide()
 
 
 

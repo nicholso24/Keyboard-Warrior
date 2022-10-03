@@ -18,8 +18,8 @@ func _physics_process(delta):
 	
 	# If player is hit
 	if object:
+		player.death()
 		emit_signal("player_hit")
-		player.hide()
 
 # Method called when the enemy is inside a keyarea when it is activated
 # The Unstoppable enemy cannot be killed, but instead grows bigger
