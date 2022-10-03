@@ -2,15 +2,13 @@ extends KinematicBody2D
 
 #signal hit
 export (int) var speed = 500
-export var dead = false
 
 onready var target = position
 var velocity = Vector2()
-
 signal restart
-
 func _ready():
 	hide()
+	$AnimatedSprite.play()
 
 func _input(event):
 	if event.is_action_pressed("move"):
@@ -22,13 +20,9 @@ func _input(event):
 func _physics_process(delta):
 	velocity = position.direction_to(target) * speed
 	# look_at(target)
-	if dead:
-		$AnimatedSprite_Player.animation = "death"
-		$AnimatedSprite_Player.flip_h = velocity.x < 0
-	
 	if position.distance_to(target) > 5:
-		$AnimatedSprite_Player.animation = "run"
-		$AnimatedSprite_Player.flip_h = velocity.x < 0
+		$AnimatedSprite.animation = "run"
+		$AnimatedSprite.flip_h = velocity.x < 0
 		#velocity = move_and_collide(velocity)
 		var enemy = move_and_collide(velocity * delta)
 		
@@ -37,20 +31,19 @@ func _physics_process(delta):
 				#hide()
 	else:
 		
-		$AnimatedSprite_Player.animation = "idle"
+		$AnimatedSprite.animation = "idle"
+		
 		
 func kill():
-	dead = true
-	
+	pass
 func start(new_position):
-	position = new_position
-	show()
-	$CollisionShape2D.disabled = false
+		position = new_position
+		show()
+		$CollisionShape2D.disabled = false
 
-func player_hit():
-	$AnimatedSprite_Player.flip_h = velocity.x < 0
-	$AnimatedSprite_Player.animation = "death"
-	hide()
+
+
+
 
 func _on_HUD_nux_mode():
 	# Nux mode is on so makes the playable character immune

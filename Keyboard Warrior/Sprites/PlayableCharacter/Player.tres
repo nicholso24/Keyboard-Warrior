@@ -27,7 +27,7 @@ animations = [ {
 "frames": [ ExtResource( 5 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 2 ), ExtResource( 2 ) ],
 "loop": true,
 "name": "idle",
-"speed": 8.0
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 4 ) ],
 "loop": true,
