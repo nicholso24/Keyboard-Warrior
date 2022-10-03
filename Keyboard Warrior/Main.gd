@@ -4,8 +4,10 @@ var score = 0
 var scene = load("res://Robot.tscn")
 var term = load("res://Terminator.tscn")
 var unstop = load("res://Unstoppable.tscn")
+
 func _ready():
 	randomize()
+	
 func update():
 	$HUD.update_score(score)
 	if score > 250:
@@ -19,6 +21,7 @@ func update():
 		$UnstopTimer.wait_time = 9
 		$RobotTimer.wait_time = 4
 		$TermTimer.wait_time = 2
+		
 func new_game():
 	score = 0
 	
@@ -37,8 +40,6 @@ func new_game():
 	$TermTimer.start()
 	$UnstopTimer.start()
 	$Music.play()
-	
-
 	
 func game_over():
 	get_tree().call_group("mobs","queue_free")
@@ -59,11 +60,9 @@ func _on_RobotTimer_timeout():
 	robot.connect("player_hit",self,"game_over")
 	robot.connect("robot_died",self,"robot_died")
 	
-	
 	robot.position = mob_spawn_location.position
 	
 	#robot.position = $RobotSpawn.get_position()
-
 
 func _on_ScoreTimer_timeout():
 	score += 1
@@ -80,8 +79,6 @@ func _on_TermTimer_timeout():
 	robot.connect("term_died",self,"term_died")
 	
 	robot.position = mob_spawn_location.position
-	
-
 
 func _on_UnstopTimer_timeout():
 	var robot = unstop.instance()
