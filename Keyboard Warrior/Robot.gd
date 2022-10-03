@@ -17,25 +17,24 @@ func _ready():
 	yield(get_tree().create_timer(1),"timeout")
 
 func _physics_process(delta):
-	if player:
-		yield(get_tree().create_timer(0.25), "timeout")
+	yield(get_tree().create_timer(0.25), "timeout")
 
-		velocity = position.direction_to(player.position) * speed
-		var object = move_and_collide(velocity * delta)
-    
-    if object:
-      emit_signal("player_hit")
-      player.hide()
-      
-		if dead:
-			$AnimatedSprite_Drone.animation = "death"
-			speed = 0
-		else:
-			$AnimatedSprite_Drone.animation = "run"
-			$AnimatedSprite_Drone.flip_h = velocity.x < 0
+	velocity = position.direction_to(player.position) * speed
+	var object = move_and_collide(velocity * delta)
+	
+	if object:
+	  emit_signal("player_hit")
+	  player.hide()
+	  
+	if dead:
+		$AnimatedSprite_Drone.animation = "death"
+		speed = 0
+	else:
+		$AnimatedSprite_Drone.animation = "run"
+		$AnimatedSprite_Drone.flip_h = velocity.x < 0
 		
 func kill():
-  emit_signal("robot_died")
+	emit_signal("robot_died")
 	dead = true
 	$CollisionShape2D.set_deferred("disabled", true)
 	yield($AnimatedSprite_Drone, "animation_finished")
